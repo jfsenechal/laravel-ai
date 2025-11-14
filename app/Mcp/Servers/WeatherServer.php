@@ -2,6 +2,7 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Tools\CurrentWeatherTool;
 use Laravel\Mcp\Server;
 
 class WeatherServer extends Server
@@ -27,7 +28,7 @@ class WeatherServer extends Server
      * @var array<int, class-string<\Laravel\Mcp\Server\Tool>>
      */
     protected array $tools = [
-        // // GetCurrentWeatherTool::class,
+         CurrentWeatherTool::class,
     ];
 
     /**
