@@ -45,7 +45,7 @@ class WeatherGuidelinesResource extends Resource
      */
     public function handle(Request $request): Response
     {
-        if (!$request->user()->can('read-weather')) {
+        if (!$request->user()?->can('read-weather')) {
           //  return Response::error('Permission denied.');
         }
         $guidelines = $this->weather->guidelines();

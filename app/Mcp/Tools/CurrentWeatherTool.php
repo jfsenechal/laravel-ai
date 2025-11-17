@@ -42,7 +42,7 @@ class CurrentWeatherTool extends Tool
      */
     public function handle(Request $request): Response
     {
-        if (!$request->user()->can('read-weather')) {
+        if (!$request->user()?->can('read-weather')) {
           //  return Response::error('Permission denied.');
         }
         $validated = $request->validate([
@@ -60,8 +60,7 @@ class CurrentWeatherTool extends Tool
             return Response::error('Unable to fetch weather data. Please try again.');
         }
 
-        // Get weather...
-        return Response::text('Weather Summary: Sunny, 72°F');
+        return Response::text($forecast);
     }
 
     /**
