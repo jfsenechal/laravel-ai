@@ -8,4 +8,4 @@ use Laravel\Mcp\Facades\Mcp;
 Mcp::web('/mcp/weather', WeatherServer::class);
 
 //perfect for building local AI assistant integrations like Laravel Boost.
-//Mcp::local('weather', WeatherServer::class);
+Mcp::local('weather', WeatherServer::class);

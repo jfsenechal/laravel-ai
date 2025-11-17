@@ -2,8 +2,12 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Prompts\DescribeWeatherPrompt;
+use App\Mcp\Resources\WeatherGuidelinesResource;
 use App\Mcp\Tools\CurrentWeatherTool;
 use Laravel\Mcp\Server;
+use Laravel\Mcp\Server\Prompt;
+use Laravel\Mcp\Server\Tool;
 
 class WeatherServer extends Server
 {
@@ -25,27 +29,27 @@ class WeatherServer extends Server
     /**
      * The tools registered with this MCP server.
      *
-     * @var array<int, class-string<\Laravel\Mcp\Server\Tool>>
+     * @var array<int,Tool>
      */
     protected array $tools = [
-         CurrentWeatherTool::class,
+        CurrentWeatherTool::class,
     ];
 
     /**
      * The resources registered with this MCP server.
      *
-     * @var array<int, class-string<\Laravel\Mcp\Server\Resource>>
+     * @var array<int,Resource>
      */
     protected array $resources = [
-        //   // WeatherGuidelinesResource::class,
+        WeatherGuidelinesResource::class,
     ];
 
     /**
      * The prompts registered with this MCP server.
      *
-     * @var array<int, class-string<\Laravel\Mcp\Server\Prompt>>
+     * @var array<int,Prompt>
      */
     protected array $prompts = [
-        //        // DescribeWeatherPrompt::class,
+        DescribeWeatherPrompt::class,
     ];
 }
