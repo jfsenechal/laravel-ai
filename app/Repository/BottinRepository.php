@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 class BottinRepository
 {
+    /**
+     * @return array<int, string>
+     */
     public function getFiches(): array
     {
         try {
@@ -24,9 +27,9 @@ class BottinRepository
         }
     }
 
-    public function guidelines()
+    public function guidelines(): string
     {
-
+        return "Weather Summary ";
     }
 
     public function isServiceAvailable(): bool

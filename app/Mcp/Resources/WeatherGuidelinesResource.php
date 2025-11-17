@@ -45,6 +45,9 @@ class WeatherGuidelinesResource extends Resource
      */
     public function handle(Request $request): Response
     {
+        if (!$request->user()->can('read-weather')) {
+          //  return Response::error('Permission denied.');
+        }
         $guidelines = $this->weather->guidelines();
 
         //return Response::blob(file_get_contents(storage_path('weather/radar.png'))); change mimeType to image/png

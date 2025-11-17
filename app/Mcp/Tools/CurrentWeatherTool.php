@@ -42,6 +42,9 @@ class CurrentWeatherTool extends Tool
      */
     public function handle(Request $request): Response
     {
+        if (!$request->user()->can('read-weather')) {
+          //  return Response::error('Permission denied.');
+        }
         $validated = $request->validate([
             'location' => ['required', 'string', 'max:100'],
             'units' => 'in:celsius,fahrenheit',
